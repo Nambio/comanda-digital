@@ -21,13 +21,17 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { QrcodeComponent } from './components/qrcode/qrcode.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    QrcodeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    ZXingScannerModule 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

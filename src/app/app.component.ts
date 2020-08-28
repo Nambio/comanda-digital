@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
   public title;
   ngOnInit(): void {
     this.title = 'comanda-digital';
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
   
 }
