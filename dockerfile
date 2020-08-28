@@ -1,4 +1,4 @@
-FROM node:v12.18.3 as builder
+FROM node:12.18.3 as builder
 
 COPY package.json package-lock.json ./
 
