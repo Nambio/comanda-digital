@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
+    "@zxing/ngx-scanner": "^3.0.1",
     "angular": "^1.8.0",
     "angular-animate": "^1.8.0",
     "angular-aria": "^1.8.0",
