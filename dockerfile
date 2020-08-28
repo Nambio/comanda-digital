@@ -1,14 +1,16 @@
-FROM node:12.18.3 as node
-WORKDIR /app
-COPY package.json /app/
-RUN npm i npm@latest -g
-RUN npm install
-RUN npm install @zxing/ngx-scanner
-COPY ./ /app/
-ARG env=prod
-RUN npm run build
+FROM node:13.3.0 AS compile-image
 
-# Estagio 2 - Será responsavel por expor a aplicação
-FROM nginx:1.13
-COPY --from=node /app/dist/comanda-digital /var/www/html
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+RUN npm install -g yarn
+
+WORKDIR /opt/ng
+COPY .npmrc package.json yarn.lock ./
+RUN yarn install
+
+ENV PATH="./node_modules/.bin:$PATH" 
+
+COPY . ./
+RUN ng build --prod
+
+FROM nginx
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=compile-image /opt/ng/dist/app-name /usr/share/nginx/html
