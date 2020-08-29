@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
+import { ItemMenuComponent } from './components/item-menu/item-menu.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { QrcodeComponent } from './components/qrcode/qrcode.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    QrcodeComponent
+    QrcodeComponent,
+    ItemMenuComponent
   ],
   imports: [
     BrowserModule,
