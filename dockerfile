@@ -1,27 +1,13 @@
-FROM node:12.18.3 as builder
+FROM node:12.18.3 as node
+WORKDIR /app
+COPY package.json /app/
+RUN npm i npm@latest -g
+RUN npm install
+COPY ./ /app/
+ARG env=prod
+RUN ng build --prod
 
-COPY package.json package-lock.json ./
-
-RUN npm install && mkdir /comanda-digital && mv ./node_modules ./comanda-digital
-
-WORKDIR /comanda-digital
-
-COPY . .
-
-RUN npm run ng build -- --deploy-url=/envapp/ --prod
-
-
-FROM nginx:alpine
-
-#!/bin/sh
-
-COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
-
-## Remove default nginx index page
-RUN rm -rf /usr/share/nginx/html/*
-
-COPY --from=builder /comanda-digital/dist /usr/share/nginx/html
-
-EXPOSE 4200 80
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# Estagio 2 - Será responsavel por expor a aplicação
+FROM nginx:1.13
+COPY --from=node /app/dist/comanda-digital /var/www/html
+COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
