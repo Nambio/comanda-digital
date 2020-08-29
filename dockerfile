@@ -5,7 +5,7 @@ RUN npm i npm@latest -g
 RUN npm install
 COPY ./ /app/
 ARG env=prod
-RUN ng build --prod
+RUN npm build --prod
 
 # Estagio 2 - Será responsavel por expor a aplicação
 FROM nginx:1.13
