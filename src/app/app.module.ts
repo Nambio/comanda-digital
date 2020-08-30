@@ -23,7 +23,11 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
-import { ItemMenuComponent } from './components/item-menu/item-menu.component';
+import { CardapioComponent } from './components/cardapio/cardapio.component';
+import { ItemCardapioComponent } from './components/item-cardapio/item-cardapio.component';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { ItemMenuComponent } from './components/item-menu/item-menu.component';
     HeaderComponent,
     FooterComponent,
     QrcodeComponent,
-    ItemMenuComponent
+    CardapioComponent,
+    ItemCardapioComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import { ItemMenuComponent } from './components/item-menu/item-menu.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    ZXingScannerModule 
+    ZXingScannerModule,
+    MatCheckboxModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,104 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public menu = 1;
 
-  public restaurante = {
-    nome: "Restaurante do Zé",
-    imagem: 'https://media-cdn.tripadvisor.com/media/photo-s/08/ff/9b/b8/r3-express-food.jpg',
-  }
-
-
-  public cardapio = [
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 1
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 2
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 3
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 4
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 5
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 6
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 7
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 8
-    },
-    {
-      imagem: 'https://i.pinimg.com/564x/6e/e6/80/6ee680cf7da13f3be8cefd57f01f9c04.jpg',
-      titulo: "Picanha assada ao alho",
-      ingredientes: "Picanha maturada, alho fresco e cebolinha, tudo assado na brasa",
-      valorCliente: "R$ 10.00",
-      valorPrato: 10.00,
-      item: 9
-    },
-    // {
-    //   imagem: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-    //   titulo: "Picanha assada ao alho",
-    //   ingredientes: "Picanha maturada, alho freco e cebolinha, tudo assado na brasa",
-    //   valorCliente: "R$ 10",
-    //   valorPrato: 10.00
-    // },
-    
-  ]
-  
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  public entrarItem(item){
-    
+    this.router.navigate(['/cardapio']);
   }
 
 }

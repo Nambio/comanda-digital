@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public title = 'Comanda Digital';
 
+  public restaurante = {
+    nome: "Restaurante do Zé",
+    imagem: 'https://media-cdn.tripadvisor.com/media/photo-s/08/ff/9b/b8/r3-express-food.jpg',
+  }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
   }
   showFiller = false;
 
+  retornaHome(){
+    this.router.navigate(['/home']);
+  }
 }

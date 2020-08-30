@@ -1,0 +1,28 @@
+.example-card {
+    max-width: 100%;;
+    margin-bottom: 2ex;
+  }
+  .cards{
+      margin-top: 2ex;
+      min-height: 8ex;
+  }
+  
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+  }
+.ing{
+    color:rgb(110, 110, 110);
+}
+  mat-card {
+    background: #fff!important;
+    color: rgba(0,0,0,.87);
+}
+
+.conteudo-card{
+    background-color: initial; 
+    margin-left: 2%; 
+    margin-right: 2%; 
+    margin-top: 6%;
+    font-size: 12px;
+}

@@ -1,0 +1,55 @@
+<app-header></app-header>
+<router-outlet>
+    <div style="max-width: 96%;">
+        <span>&nbsp;&nbsp; Pedidos</span>
+        <div *ngFor="let ped of pedidos; index as i">
+            <mat-selection-list >
+                <mat-grid-list cols="12" >
+                    <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        <span></span>{{ped.quantidade}} x
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="8" [rowspan]="1">
+                        <span style="color: black!important; margin-right: 2%;">{{ped.titulo}}</span>
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                        <span>R$ {{ped.valores * ped.quantidade}}</span> 
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="12" [rowspan]="2">
+                        <ul class="list-group" ng-repeat="comentario in comentarios">
+                            <li >
+                            <div style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            display: inline-block; max-width: 90%;">
+                                {{ped.titulo}} 
+                            </div>
+                            <div style="display: inline-block;">
+                                &nbsp;- R$ {{ped.valorPrato}}
+                            </div>
+                                
+                            </li>
+                            <li *ngFor="let itemAd of ped.itensAdicionais">
+                                {{itemAd.nome}} - R$ {{itemAd.valor}}
+                            </li>
+                            <li *ngFor="let bebida of ped.bebidas">
+                                {{bebida.nome}} - R$ {{bebida.valor}}
+                            </li>
+                        </ul>
+                    </mat-grid-tile>
+    
+                    <!-- <mat-grid-tile [colspan]="12" [rowspan]="3">
+                        
+                    </mat-grid-tile>               -->
+                </mat-grid-list>
+    
+            </mat-selection-list>
+            <div style="text-align: center; margin-top: 1ex;" (click)="removerItem(ped.idItem)">
+                <span>remover item</span>
+            </div>
+        </div>
+    </div>
+    <div style="position: fixed;bottom: 0; background-color: cornflowerblue; width: 100%;">
+        <button mat-raised-button color="primary" style="min-width: 100%;">Fazer Pagamento</button>
+    </div>
+</router-outlet>

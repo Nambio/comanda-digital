@@ -1,0 +1,76 @@
+<app-header></app-header>
+<router-outlet>
+    <md-content class="md-padding demo-section" layout="row" flex>
+        <mat-grid-list cols="4" rowHeight="200px" style="margin-top: 5%;">
+            <mat-grid-tile  [colspan]="4" [rowspan]="1">
+                <img mat-card-image  src="{{itemCardapio.imagem}}" alt="Photo of a Shiba Inu">
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-card-content  class="conteudo-card">
+            <mat-grid-list cols="4" rowHeight="100px" >
+                <mat-grid-tile style="max-width: 94%;  margin-left: 3%!important; margin-right: 3%!important;" [colspan]="4"[rowspan]="1">
+                    <span>{{itemCardapio.titulo}}<p class="ing">{{itemCardapio.ingredientes}}</p></span>               
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+        
+        <div style="max-width: 96%;">
+            <span>&nbsp;&nbsp; Porções Extras</span>
+            <mat-selection-list *ngFor="let it of itemCardapio.itensAdicionais">
+                <mat-grid-list cols="12" >
+                    <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        <input (click)="incluirRetirarItensAdicionais(it.id)" type="checkbox" name="" id="" style="margin-right: 2%;">
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="8" [rowspan]="1">
+                        <span style="color: black!important; margin-right: 2%;">{{it.nome}}</span>
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                        <span>R$ {{it.valor}}</span> 
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-selection-list>
+            <span>&nbsp;</span><br>
+            <span>&nbsp;&nbsp; Bebidas</span>
+            <mat-selection-list *ngFor="let it of itemCardapio.bebidas">
+                <mat-grid-list cols="12">
+                    <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        <input  (click)="incluirRetirarBebidas(it.id)" type="checkbox" name="" id="">
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="8" [rowspan]="1">
+                        <span style="color: black!important;">{{it.nome}}</span> 
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                        <span>R$ {{it.valor}}</span> 
+                    </mat-grid-tile>
+                </mat-grid-list>
+            
+            </mat-selection-list>
+        </div>
+        <mat-card-content  class="conteudo-card" >
+            <mat-grid-list cols="12" rowHeight="100px">
+                <mat-grid-tile  [colspan]="3" [rowspan]="1">
+                </mat-grid-tile>
+                <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                    <button *ngIf="quantidadeItem > 1" mat-mini-fab (click)="retirar()">-</button>
+                    <button *ngIf="quantidadeItem === 1" mat-mini-fab disabled >-</button>
+                </mat-grid-tile>
+                <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                    <button mat-mini-fab>{{quantidadeItem}}</button>
+                </mat-grid-tile>
+                <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                    <button mat-mini-fab (click)="incluir()">+</button>
+                </mat-grid-tile>
+                <mat-grid-tile  [colspan]="3" [rowspan]="1">
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+
+
+    
+    </md-content>
+    <div style="position: fixed;bottom: 0; background-color: cornflowerblue; width: 100%;" (click)="adicionarCarrinho()">
+        <button mat-raised-button color="primary" style="min-width: 100%;">adicionar {{quantidadeItem}} ao carrinho R$ {{valorTotal}}</button>
+    </div>
+</router-outlet>
+
+<!-- *ngFor="let ca of cardapio" -->

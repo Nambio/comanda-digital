@@ -18,6 +18,24 @@
           </mat-toolbar>
        </mat-sidenav-content>
 </mat-sidenav-container>
+<mat-card class="example-card">
+  <mat-grid-list cols="4" rowHeight="70px">
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+          <div mat-card-sm-image class="example-header-image"  [ngStyle]="{'background-image': 'url(' + restaurante.imagem + ')'}"></div>
+      </mat-grid-tile>
+      <mat-grid-tile  [colspan]="3" [rowspan]="1" style="cursor: pointer;" (click)="retornaHome()">
+          <mat-card-title>{{restaurante.nome}}</mat-card-title>
+      </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+<mat-grid-list cols="4" rowHeight="15px">
+  <mat-grid-tile  [colspan]="3" [rowspan]="1">
+  </mat-grid-tile>
+  <mat-grid-tile  [colspan]="1" [rowspan]="1">
+    <span style="text-align: center;">Mesa 2</span>
+  </mat-grid-tile>
+</mat-grid-list>
+
 
 
   <!-- <mat-drawer-container class="example-container" autosize>

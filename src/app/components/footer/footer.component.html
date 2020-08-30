@@ -1,0 +1,24 @@
+<div *ngIf="1===1">
+    <div style="position: fixed;bottom: 0; width: 100%;">
+        
+        <button mat-raised-button color="primary" style="min-width: 100%;" (click)="irCarrinho()">  
+                <mat-grid-list cols="12" >
+                    <mat-grid-tile style="margin-top: 10%;" [colspan]="2" [rowspan]="1">
+                        R$ {{valorItens}}
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+        
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="4" [rowspan]="1">
+                        ver carrinho
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+
+                    </mat-grid-tile>
+                    <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                        {{quantidadeItem}}
+                    </mat-grid-tile>
+                </mat-grid-list>  
+        </button>
+    </div>
+</div>

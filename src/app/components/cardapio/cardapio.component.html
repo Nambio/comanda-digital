@@ -1,0 +1,23 @@
+<app-header></app-header>
+<router-outlet>
+    <mat-grid-list cols="4" rowHeight="15px">
+        <mat-grid-tile  [colspan]="4" [rowspan]="1">
+            <span style="text-align: center;">Cardápio</span>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-card-content *ngFor="let ca of cardapio" class="conteudo-card">
+        <mat-grid-list cols="4" rowHeight="100px" (click)="escolherItem(ca.item)" style="cursor: pointer;">
+            <mat-grid-tile style="max-width: 70%;" [colspan]="3"[rowspan]="1">
+                <span>{{ca.item}} - {{ca.titulo}}<p class="ing">{{ca.ingredientes}}</p><p class="ing">{{ca.valorCliente}}</p></span>               
+            </mat-grid-tile>
+            <mat-grid-tile  [colspan]="1" [rowspan]="1">
+                <div style="margin-top: 7%; "></div>
+                <div class="example-header-image" mat-card-sm-image [ngStyle]="{'background-image': 'url(' + ca.imagem + ')'}"></div>
+            </mat-grid-tile>
+    
+        </mat-grid-list>
+    </mat-card-content>
+
+</router-outlet>
+<app-footer></app-footer>
+

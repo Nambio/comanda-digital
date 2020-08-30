@@ -1,0 +1,30 @@
+html{
+    color: black;
+}
+
+.mat-list-text{
+    color: black!important;
+}
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+.mat-grid-tile .mat-figure {
+    display: -moz-inline-grid!important;
+}
+
+.mat-mini-fab.mat-button-disabled.mat-button-disabled{
+    background-color:lightgray!important;
+    color: white;
+}
